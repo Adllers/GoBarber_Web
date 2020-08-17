@@ -42,14 +42,22 @@ const Input: React.FC<InputProp> = ({name, containerStyle = {}, icon: Icon, ...r
     },[]);
 
     return (
-        <Container style={containerStyle} isErrored={!!error} isFilled={isFilled} isFocused={isFocused}>
+        <Container 
+            style={containerStyle} 
+            isErrored={!!error} 
+            isFilled={isFilled} 
+            isFocused={isFocused} 
+            data-testid='input-container'
+        >
+        
             { Icon && <Icon size={20} /> }
             <input
                 
                 onFocus={handleInputFocus}
                 onBlur={handleInputBlur} 
                 defaultValue={defaultValue} 
-                ref={inputRef} {...rest} 
+                ref={inputRef} 
+                {...rest} 
             />
             { error && (
                 <Error title={error}>
