@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, FormEvent, ChangeEvent } from 'react';
+import React, { useCallback, useRef, ChangeEvent } from 'react';
 import { FiArrowLeft, FiMail, FiLock, FiUser, FiCamera } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
@@ -33,8 +33,10 @@ const Profile: React.FC = () => {
     const { user, updateUser } = useAuth();
 
     const handleSubmit = useCallback(async (data: ProfileFormData) => {
+        
         try {
 
+            
             formRef.current?.setErrors({});
 
             const schema = Yup.object().shape({
